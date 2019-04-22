@@ -9,13 +9,18 @@ export const receiveOnePokemon = data => {
   };
 
 export const receiveAllPokemons = data => {  
-    
     return {
       type: "RECEIVE_ALL_POKEMON",
       payload: data
     };    
   };
   
+export const clear = data => {
+  return {
+    type: "CLEAR",
+    payload: ""
+  }
+}  
   export const receiveError = error => {
     return {
       type: "RECEIVE_ERROR",
@@ -24,7 +29,9 @@ export const receiveAllPokemons = data => {
   };
 
 export const getResult = (results) =>{
+  
   return function (dispatch){
+    dispatch(clear());
     let search = [];
     results.map((item) => {   
         let url = item.url;
@@ -42,15 +49,16 @@ export const getResult = (results) =>{
                   } = response.data;
                   let addPokemon = new Pokemon(id, name, health, type, attack, urlImg);
                   search.push(addPokemon);
+                  dispatch(receiveAllPokemons(addPokemon));
               })
               .catch(function(response) {
                receiveError(response);
               }); 
     //console.log(item);
-    //  fetchOnePokemon(item.url,true);
+    //fetchOnePokemon(item.url,true);
     })
    // console.log(search);
-    dispatch(receiveAllPokemons(search));
+   //setTimeout(dispatch(receiveAllPokemons(search)),5000);
 }
 }
 

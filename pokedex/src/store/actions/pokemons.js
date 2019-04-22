@@ -16,7 +16,7 @@ export const receiveError = error => {
 
 export const fetchPokemons = filter => {
   return function(dispatch) {    
-    let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50";
+    let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=200";
     axios({
       url: url,
       timeout: 100000

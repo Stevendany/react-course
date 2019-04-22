@@ -9,7 +9,9 @@ const resultsPokemon = (state = initialState, action) => {
             return { ...state, resultsPokemon: [action.payload] }
         case 'RECEIVE_ALL_POKEMON':
             console.log(action.payload);            
-            return { ...state, resultsPokemon: action.payload }
+            return { ...state, resultsPokemon:[...state.resultsPokemon, action.payload] }
+        case 'CLEAR':           
+        return { ...state, resultsPokemon:"" }    
         case 'RECEIVE_ERROR':
             return { ...state, resultsPokemon: action.error }
         default:
