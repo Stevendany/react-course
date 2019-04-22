@@ -1,0 +1,28 @@
+.options{
+    position: absolute;
+    top: 50px;
+    width: 97%;
+    text-align: left;
+    z-index: 7777;
+}
+.options > ul{
+    padding: 2%;
+    margin: 0;
+    background: white;
+    border: 1px solid #737373;
+    border-radius: 3px;
+}
+.options > ul > li{
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    margin: 2px;
+    transition: 100ms ease-in-out all;
+}
+.options > ul > li:hover{
+    background: rgba(0,0,0,0.3);
+    font-weight: bold;
+}
+.gone{
+    display: none;
+}
